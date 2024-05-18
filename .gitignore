@@ -1,2 +1,4 @@
-/node_modules
-/.wwebjs_auth
+/app/node_modules
+/app/.wwebjs_auth
+/app/.env
+/volumes
