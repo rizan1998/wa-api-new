@@ -24,21 +24,15 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    company_id: {
-      type: Number,
-      default: 1,
-    },
     created_at: {
       type: Date,
       default: Date.now,
     },
     updated_at: {
       type: Date,
-      default: Date.now,
     },
     deleted_at: {
       type: Date,
-      default: Date.now,
     },
   },
   { collection: "users" }

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = new express.Router();
+const verifyJWT = require("../middleware/verifyJWT");
 const { registrationValidator, loginValidator } = require("../middleware/validator/authValidator");
+const { createDeviceValidator } = require("../middleware/validator/deviceValidator");
 
 // controller
 const deviceCtrl = require("../controllers/deviceController");
@@ -11,6 +13,9 @@ const userCtrl = require("../controllers/userController");
 router.post("/auth/register", registrationValidator, authCtrl.register);
 router.post("/auth/login", loginValidator, authCtrl.login);
 
+// check token
+router.use(verifyJWT);
+
 // user
 router.post("/users/create", userCtrl.create);
 router.get("/users/fetch", userCtrl.fetch);
@@ -20,7 +25,7 @@ router.delete("/users/:id/delete", userCtrl.destroy);
 
 // device routes
 router.get("/devices/fetch", deviceCtrl.fetch);
-router.post("/devices/create", deviceCtrl.create);
+router.post("/devices/create", createDeviceValidator, deviceCtrl.create);
 router.get("/devices/:id/detail", deviceCtrl.getOne);
 router.put("/devices/:id/update", deviceCtrl.update);
 router.delete("/devices/:id/delete", deviceCtrl.destroy);

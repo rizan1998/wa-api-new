@@ -8,16 +8,21 @@ const deviceSchema = new Schema(
       type: String,
       required: true,
     },
-    user_id: {
-      type: Number,
+    device_number: {
+      type: String,
       required: true,
     },
-    whatsapp_id: {
+    device_code: {
+      type: String,
+      required: true,
+    },
+    user_id: {
       type: String,
       required: true,
     },
     status_active: {
       type: Boolean,
+      default: false,
       required: true,
     },
   },

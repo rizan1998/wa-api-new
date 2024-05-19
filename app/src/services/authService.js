@@ -34,7 +34,6 @@ async function login(payload) {
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "24h" }
     );
-    // console.log(user._id);
     return { accessToken };
   } else {
     return { message: "Invalid username or password" };
