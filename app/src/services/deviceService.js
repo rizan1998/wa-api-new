@@ -1,7 +1,7 @@
-const Room = require("../models/deviceModel");
+const Device = require("../models/deviceModel");
 
 async function fetch() {
-  const data = await Room.find({});
+  const data = await Device.find({});
   if (data.length) {
     return data;
   } else {
@@ -9,16 +9,16 @@ async function fetch() {
   }
 }
 async function getOne(id) {
-  const data = await Room.findOne({ _id: id });
+  const data = await Device.findOne({ _id: id });
   return data;
 }
 async function create(body) {
-  let room = new Room({ ...body });
-  room = await room.save();
-  return room;
+  let device = new Device({ ...body });
+  device = await Device.save();
+  return device;
 }
 async function update(body, id) {
-  const data = await Room.findOneAndUpdate(
+  const data = await Device.findOneAndUpdate(
     { _id: id },
     { ...body },
     {
@@ -28,7 +28,7 @@ async function update(body, id) {
   return data;
 }
 async function destroy(id) {
-  const data = await Room.findOneAndDelete({ _id: id });
+  const data = await Device.findOneAndDelete({ _id: id });
   return data;
 }
 

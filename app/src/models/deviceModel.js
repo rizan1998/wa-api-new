@@ -8,16 +8,16 @@ const deviceSchema = new Schema(
       type: String,
       required: true,
     },
-    price: {
+    user_id: {
       type: Number,
       required: true,
     },
-    hotel_id: {
+    whatsapp_id: {
       type: String,
       required: true,
     },
-    capacity: {
-      type: Number,
+    status_active: {
+      type: Boolean,
       required: true,
     },
   },
