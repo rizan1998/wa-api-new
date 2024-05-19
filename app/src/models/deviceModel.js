@@ -25,6 +25,16 @@ const deviceSchema = new Schema(
       default: false,
       required: true,
     },
+    created_at: {
+      type: Date,
+      default: Date.now,
+    },
+    updated_at: {
+      type: Date,
+    },
+    deleted_at: {
+      type: Date,
+    },
   },
   { collection: "devices" }
 );
